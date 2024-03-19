@@ -1,18 +1,27 @@
-import React from 'react'
-import Header from './ui/Header'
-import Footer from './ui/Footer'
-import HomePage from './features/home/HomePage'
+
+import { RouterProvider, createBrowserRouter } from 'react-router-dom'
+import Home from './features/home/Home';
+import About from './features/About';
+import Contact from './features/Contact';
+import { Children } from 'react';
+import RootLayOut from './ui/RootLayOut';
+
 
 const App = () => {
-  return (
-    <div>
-      <Header />
-      <hr className='border-2 border-red-500' />
-      <HomePage />
-      <hr className='border-2 border-red-500' />
-      <Footer />
-    </div>
-  )
+
+  const router = createBrowserRouter([
+    {
+      path: '/', element: <RootLayOut />,
+
+      children: [
+        { index: true, element: <Home /> },
+        { path: 'about', element: <About /> },
+        { path: 'contact', element: <Contact /> }
+      ]
+    }
+  ]);
+
+  return <RouterProvider router={router} />
 }
 
 export default App
