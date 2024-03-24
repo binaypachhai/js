@@ -2,7 +2,7 @@ import { DiAndroid, DiApple, DiChrome, DiCss3, DiGit, DiNodejs, DiPython, DiReac
 
 const Tech = () => {
   return (
-    <div className="my-9 space-y-9">
+    <div className="my-9 space-y-5">
 
       <h1 className="text-center font-semibold text-3xl">Technologies I Use</h1>
 

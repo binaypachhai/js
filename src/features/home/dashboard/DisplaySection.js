@@ -1,11 +1,18 @@
-import React from 'react'
+import { useLottie } from "lottie-react";
+import developerAnimation from "../../../assets/animation.json";
 
 const DisplaySection = () => {
+
+  const { View } = useLottie({
+    animationData: developerAnimation,
+    loop: true
+  });
   return (
     <div className='grid grid-cols-2 sm:grid-cols-1 items-center bg-black text-white py-4'>
 
       <div className="animation">
-        <dotlottie-player src="https://lottie.host/24590414-81cb-4e76-9ff9-154aa1cca69d/sUoD2tUtFl.json" background="transparent" speed="1" loop autoplay></dotlottie-player>
+        {View}
+        {/* <dotlottie-player src="https://lottie.host/24590414-81cb-4e76-9ff9-154aa1cca69d/sUoD2tUtFl.json" background="transparent" speed="1" loop autoplay></dotlottie-player> */}
 
       </div>
 
