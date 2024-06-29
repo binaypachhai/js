@@ -1,36 +1,41 @@
-import React from 'react'
-import Header from '../../ui/Header'
-import Display from './Display'
-import Main from './Main'
-import { products } from '../../Dummy/data'
-import { useNavigate } from 'react-router'
+import React, { useEffect, useState } from 'react'
+import Search from '../shared/Search'
+import axios from 'axios'
 
 const Home = () => {
+  const [search, setSearch] = useState('spiderman');
 
-  const nav = useNavigate();
+  const ab = new AbortController();
+  console.log(ab);
 
+  const getData = async (query) => {
+    try {
+      const response = await axios.get('https://api.themoviedb.org/3/search/movie', {
+        params: {
+          qry: query,
+          api_key: '34ac47dd6534aa83110f00b143a0db1e'
+        },
+        signal: ab.signal
+      });
+      console.log(response.data);
+    } catch (error) {
+
+    }
+  }
+
+
+  useEffect(() => {
+    getData(search);
+
+    return () => {
+      ab.abort();
+    }
+
+  }, [search]);
   return (
     <div>
-
-
-      <h1 className='text-2xl py-4  text-center'>Products</h1>
-
-      <div className='p-4'>
-
-        {products.map((product) => {
-          return <div onClick={() => nav(`/product/${product.id}`)} key={product.id} className='space-y-2 cursor-pointer '>
-
-            <h1 className='text-xl mt-5'>{product.title}</h1>
-            <img src={product.thumbnail} alt="" className='border-black border-2 ' />
-
-
-          </div>
-        }
-        )}
-      </div>
-
+      <Search setSearch={setSearch} />
     </div>
-
   )
 }
 
