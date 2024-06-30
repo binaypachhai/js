@@ -2,18 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 
 const movies = [
-  {
-    "Title": "The Lion King",
-    "Year": "2019",
-    "Runtime": "118 min",
-    "Poster": "https://m.media-amazon.com/images/M/MV5BMjIwMjE1Nzc4NV5BMl5BanBnXkFtZTgwNDg4OTA1NzM@._V1_SX300.jpg"
-  },
-  {
-    "Title": "Mowgli: Legend of the Jungle",
-    "Year": "2018",
-    "Runtime": "104 min",
-    "Poster": "https://m.media-amazon.com/images/M/MV5BMjMzODc2NzU5MV5BMl5BanBnXkFtZTgwNTMwMTE3NjM@._V1_SX300.jpg"
-  },
+
   {
     "Title": "Doctor Strange",
     "Year": "2016",
@@ -25,11 +14,6 @@ const movies = [
     "Year": "2014",
     "Runtime": "101 min",
     "Poster": "https://m.media-amazon.com/images/M/MV5BMTU2NjA1ODgzMF5BMl5BanBnXkFtZTgwMTM2MTI4MjE@._V1_SX300.jpg"
-  },
-  {
-    "Title": "The Notebook",
-    "Year": "2004",
-    "Runtime": "123 min"
   }
 ];
 
@@ -39,8 +23,14 @@ export const movieSlice = createSlice({
     movies: movies
   },
   reducers: {
+    addMovies: (state, action) => {
+      state.movies.push(action.payload);
+    }
 
   }
 
 
 });
+
+
+export const { addMovies } = movieSlice.actions;
