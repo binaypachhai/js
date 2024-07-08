@@ -10,6 +10,9 @@ const Header = () => {
       </h1>
 
       <nav className='space-x-4'>
+
+        <NavLink to='/addForm'>AddForm</NavLink>
+
         <NavLink to='/about' className={({ isActive }) => {
           return isActive ? 'text-red-600' : 'text-white';
         }}>About</NavLink>
