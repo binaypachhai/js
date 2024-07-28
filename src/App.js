@@ -5,8 +5,7 @@ import { RouterProvider, createBrowserRouter } from 'react-router-dom'
 import About from './features/About';
 import RootLayout from './features/home/RootLayout';
 import NotFound from './ui/NotFound';
-import AddForm from './features/users/AddForm';
-import UpdateForm from './features/users/UpdateForm';
+
 
 
 const App = () => {
@@ -18,8 +17,7 @@ const App = () => {
       children: [
         { index: true, element: <Home /> },
 
-        { path: 'addForm', element: <AddForm /> },
-        { path: 'updateForm/:id', element: <UpdateForm /> },
+
         { path: 'about', element: <About /> },
         { path: '*', element: <NotFound /> },
       ]
