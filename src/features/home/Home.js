@@ -33,7 +33,12 @@ const Home = () => {
 
 
   return (
+
+
+
     <div className='p-4 max-w-[400px]'>
+
+
 
       {data.map((user, i) => {
         return <Accordion open={opens.includes(i)} key={user.id}>
@@ -45,6 +50,8 @@ const Home = () => {
 
 
       })}
+
+
     </div>
   )
 }

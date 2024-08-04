@@ -1,10 +1,19 @@
+import { Button } from '@material-tailwind/react';
 import React from 'react'
+import { useNavigate } from 'react-router'
 
 const About = () => {
+
+  const nav = useNavigate();
   return (
-    <div>
-      <h1>This is about page</h1>
-      <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ut architecto dolor voluptate animi laudantium itaque iusto voluptatum aliquid accusamus ipsa esse nobis illo hic rem </p>
+    <div className='p-2'>
+      <h1>The playlist</h1>
+      <p>This webapp allows us to get, add and delete data of different users with the use of MockAPI and faker.js </p>
+
+      <div className='mt-2'><Button onClick={() => nav(-1)}>Go Back</Button></div>
+
+
+
     </div>
   )
 }

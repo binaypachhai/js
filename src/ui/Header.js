@@ -6,12 +6,12 @@ const Header = () => {
     <div className='bg-black text-white flex justify-between px-4 py-4'>
 
       <h1 className='text-2xl'>
-        <NavLink to='/' >Tailwind</NavLink>
+        <NavLink to='/' >The Playlist</NavLink>
       </h1>
 
       <nav className='space-x-4'>
 
-        <NavLink to='/addForm'>AddForm</NavLink>
+        {/* <NavLink to='/addForm'>AddForm</NavLink> */}
 
         <NavLink to='/about' className={({ isActive }) => {
           return isActive ? 'text-red-600' : 'text-white';
