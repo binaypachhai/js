@@ -1,8 +1,11 @@
 import { AccordionBody, Button, ButtonGroup } from '@material-tailwind/react'
-import React from 'react'
-import { useAddPostsMutation, useGetUserPostQuery } from './postApi';
+import React, { useState } from 'react'
+import { useAddPostsMutation, useGetUserPostQuery, useRemovePostsMutation } from './postApi';
 
 const PostUi = ({ user }) => {
+
+  // const [id, setId] = useState(null);
+
 
   const { isError, data, error, isLoading, isFetching } = useGetUserPostQuery(user);
 
@@ -11,6 +14,12 @@ const PostUi = ({ user }) => {
   const [addPost, { isLoading: load, data: dat, error: err }] = useAddPostsMutation(user);
 
 
+  const [removePost, { isLoading: remLoad, isSuccess: remSuccess }] = useRemovePostsMutation();
+
+
+
+  console.log(remSuccess);
+
 
   if (isLoading) {
     return (
@@ -18,6 +27,10 @@ const PostUi = ({ user }) => {
     )
   }
 
+  // const handleRemove = (post) => {
+  //   setId(post.id);
+  //   removePost(post);
+  // }
   // console.log(data);
 
 
@@ -32,7 +45,7 @@ const PostUi = ({ user }) => {
         {data?.map((post) => {
           return <div key={post.id} className='flex justify-between space-y-4 items-baseline'>
             <h1>{post.title}</h1>
-            <Button size='sm' className='bg-red-900'>Delete</Button>
+            <Button onClick={() => removePost(post.id)} size='sm' className='bg-red-900'>Delete</Button>
           </div>
 
         })}
