@@ -1,36 +1,94 @@
-import React from 'react'
+import './App.css';
+import { TodoWrapper } from './components/TodoWrapper';
 
-import Home from './features/home/Home'
-import { RouterProvider, createBrowserRouter } from 'react-router-dom'
-import About from './features/About';
-import RootLayout from './features/home/RootLayout';
-import NotFound from './ui/NotFound';
-
-
-
-const App = () => {
-
-  const router = createBrowserRouter([
-    {
-      path: '/', element: <RootLayout />,
-
-      children: [
-        { index: true, element: <Home /> },
-
-
-        { path: 'about', element: <About /> },
-        { path: '*', element: <NotFound /> },
-      ]
-    }
-  ]);
-
-
-
-
-  return <RouterProvider router={router} />
+function App() {
+  return (
+    <div className="App">
+      <TodoWrapper />
+    </div>
+  );
 }
 
-export default App
+export default App;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// import React from 'react'
+
+// import Home from './features/home/Home'
+// import { RouterProvider, createBrowserRouter } from 'react-router-dom'
+// import About from './features/About';
+// import RootLayout from './features/home/RootLayout';
+// import NotFound from './ui/NotFound';
+
+
+
+// const App = () => {
+
+//   const router = createBrowserRouter([
+//     {
+//       path: '/', element: <RootLayout />,
+
+//       children: [
+//         { index: true, element: <Home /> },
+
+
+//         { path: 'about', element: <About /> },
+//         { path: '*', element: <NotFound /> },
+//       ]
+//     }
+//   ]);
+
+
+
+
+//   return <RouterProvider router={router} />
+// }
+
+// export default App
 
 
 
